@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import BurguerButton from './BurguerButton'
+import CartWidget from './CartWidget'
 
 function Navbar() {
 
@@ -19,7 +20,7 @@ function Navbar() {
                 <a onClick={handleClick} href="#h">Shop</a>
                 <a onClick={handleClick} href="#h">About</a>
                 <a onClick={handleClick} href="#h">Contact</a>
-                <a onClick={handleClick} href="#h">Blog</a>
+                <a onClick={handleClick} href="#h"> <CartWidget/> </a>
             </div>
             <div className='burguer'>
                 <BurguerButton clicked={clicked} handleClick={handleClick}/>
@@ -50,6 +51,7 @@ const NavContainer = styled.nav`
     color: white;
     text-decoration: none;
     margin-right: 1rem;
+
   }
   .links{
     position: absolute;
@@ -62,7 +64,7 @@ const NavContainer = styled.nav`
     transition: all .5s ease;
     a{
       color: white;
-      font-size: 2rem;
+      font-size: 4rem;
       display: block;
     }
     @media(min-width: 768px){
