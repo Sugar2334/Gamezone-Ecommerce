@@ -1,48 +1,56 @@
-import { useState } from "react"
+import React, { useState } from "react"
+
+import { Link } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 
 
-export const ItemCount = () => {
-    const [ contador, setearContador ] = useState(0) 
-    const [booleano, setBooleano] = useState(true)
-     // count = count + 1 - count += 1 - count ++
-     const handleCount = () => {
-        // count ++
-        // console.log(count)
+
+export const ItemCount = ({initial,stock,onAdd,productId}) => {
+    const [ contador, setearContador ] = useState(initial) 
+
+    const increase = () => {
         setearContador(contador + 1)
+    } 
+    
+    const decrease = () => {
+        setearContador(contador -1)
     }
 
-    const hanldeBool = ( ) => setBooleano(!booleano)
-    
     return (
         <center>
-        <button 
-            className="btn btn-outline-primary" 
-            onClick={handleCount} 
+        <button
+            disabled={stock <= 0}
+            className="btn btn-primary btn-block"
+            style={{ marginRight:'1rem'}}
+            onClick={() => onAdd(contador)}  
+        > 
+            Agregar al carrito 
+        </button>
+        <button
+            disabled={contador >= stock}
+            className="btn btn-success btn block"
+            onClick={increase} 
         > 
             + 
         </button>     
-        <label htmlFor="">{contador}</label>
+        <label
+            style={{marginLeft:'.4rem', marginRight:'.4rem'}}
+            htmlFor="">{contador}
+        </label>
       
-        <button 
-            className="btn btn-outline-primary" 
-            onClick={handleCount} 
+        <button
+            disabled={contador <= 1}
+            className="btn btn-danger btn-block" 
+            onClick={decrease} 
         > 
             - 
         </button> 
-        <br />    
-        <button 
-            className="btn btn-outline-primary" 
-            onClick={handleCount} 
-        > 
-            agregar al carrito 
-        </button>     
-        <br></br>
-        { /*<button 
-            className="btn btn-outline-primary" 
-            onClick={hanldeBool} 
-        > 
-            Ejecutar Booleano
-    </button>      */}
+
+        <Link to={`/detail/${productId}`}>
+                      <Button style={{ marginTop:'1rem'}}variant="btn btn-success btn-block">Ver Mas</Button>
+        </Link>
     </center>
     )
 }
+
+export default ItemCount;

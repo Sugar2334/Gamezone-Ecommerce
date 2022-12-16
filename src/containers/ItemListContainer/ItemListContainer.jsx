@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { ItemCount } from "../../components/ItemCount/ItemCount";
 import { gFetch } from "../../helpers/gFetch";
 import "./cards.css";
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 const ItemListContainer = ({ saludo }) => {
@@ -30,6 +29,12 @@ const ItemListContainer = ({ saludo }) => {
   }, [categoriaId]);
 
   console.log(categoriaId);
+
+  const onAdd =(quantity) => {
+    console.log(`Compraste ${quantity} unidades`);
+  }
+
+
   return (
     <>
       <h2>{saludo}</h2>
@@ -45,12 +50,11 @@ const ItemListContainer = ({ saludo }) => {
                   <Card.Img variant="top" src={product.foto} />
                   <Card.Body>
                     <Card.Title>{`${product.name} - ${product.categoria}`}</Card.Title>
-                    <Card.Text>{product.price}</Card.Text>
                     <div className="botones">
-                    <Link to={`/detail/${product.id}`}>
-                      <Button style={{ marginRight: '0rem'}}variant="btn btn-success btn-block">Comprar</Button>
-                    </Link>
-                    <Button style={{ marginLeft: '.5rem'}} variant="btn btn-primary btn-block">Agregar al carrito</Button>
+                    <Card.Text>{product.price}</Card.Text>
+                    </div>
+                    <div className="contador">
+                      <ItemCount initial={0} stock={20} onAdd={onAdd} productId={product.id}/>
                     </div>
                   </Card.Body>
                 </Card>
@@ -58,10 +62,9 @@ const ItemListContainer = ({ saludo }) => {
             }
         </div>
       )}
-
-      <ItemCount />
     </>
   );
+
 };
 
 export default ItemListContainer;

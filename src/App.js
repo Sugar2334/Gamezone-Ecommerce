@@ -15,7 +15,6 @@ function App() {
     return (
         <BrowserRouter>
             <Navbar />
-            <h1>Hola Mundo</h1>
             <Routes >
                 <Route path='/' element={ <ItemListContainer saludo={saludo} /> } />
                 <Route path='/categoria/:categoriaId' element={ <ItemListContainer saludo={saludo} /> } />
