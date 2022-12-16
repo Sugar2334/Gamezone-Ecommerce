@@ -1,5 +1,6 @@
 import { Link, NavLink } from 'react-router-dom'
-import carrito from '../../assets/react.svg'
+import { IconContext } from "react-icons";
+import { FaShoppingCart } from "react-icons/fa";
 import { Container, Nav, Navbar} from 'react-bootstrap'
 
 import './Navbar.css'
@@ -46,8 +47,12 @@ const NavBar = () => {
                 </NavLink>
           </Nav>
           <Nav>
-            <Nav.Link eventKey={2} href="#memes">
-                <img src={carrito} alt="imagen" />
+            <Nav.Link to="/cart">
+            <IconContext.Provider value={''}>
+                <div className='icon'>
+                    <FaShoppingCart />
+                </div>
+            </IconContext.Provider>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

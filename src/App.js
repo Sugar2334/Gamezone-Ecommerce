@@ -11,7 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() { 
   // definido en app
     let saludo  = ''
-    let saludar = () => alert('soy func de app') 
+    // let saludar = () => alert('soy func de app') 
     return (
         <BrowserRouter>
             <Navbar />
