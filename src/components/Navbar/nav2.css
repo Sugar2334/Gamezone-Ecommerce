@@ -1,0 +1,61 @@
+.topbar{
+    background-color:  black;
+}
+.cont{
+    margin: 0 auto;
+    max-width: 1180px;
+}
+.top-items{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+.labels{
+    display: flex;
+    flex-wrap: wrap;
+}
+.labels .item {
+    margin: 0 15px  0 0;
+    padding: 0 5px;
+}
+.nav-text{
+    color: #c7c7c7;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* ====== NAVBAR 3 ====== */
+
+
+#iconbar{
+    background-color: #000;
+    padding: 0 40px;
+    transition: all ease .2s;
+    -moz-transition: all ease .2s;
+    -webkit-transition: all ease .2s;
+    height: 60px;
+}
+.pestañas{
+    margin: 0 auto;
+    max-width: 1180px;
+}
+.icons{
+    align-items: auto;
+    display: flex;
+    justify-content: space-between;
+}
+#iconbar .icons .item-item .section{
+    display: block;
+    color: #c7c7c7;
+    font-size: 14px;
+    padding: 20px;
+    text-decoration: none;
+    transition: all ease .2s;
+    -moz-transition: all ease .2s;
+    -webkit-transition: all ease .2s;
+    font-family: 'Zen Dots';
+}
+#iconbar .icons .item-item .section:hover {
+    color: #10b4f2;
+}

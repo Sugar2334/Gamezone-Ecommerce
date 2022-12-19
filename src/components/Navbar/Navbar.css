@@ -1,8 +1,141 @@
-nav {
-    background-color: lightblue;
+.navbar-top{
+    background-color: rgb(39, 38, 38);
 }
-.icon{
-    color: gray;
+.imagen-icon{
     justify-content: center;
-    font-size: 1.5rem;
+    display: flex;
+    margin: 0 25rem;
+}
+.titulo{
+    font-family: 'Zen Dots';
+    text-transform: uppercase;
+    margin: 0 1rem;
+    color: white;
+    font-size: 20px;
+}
+.barra-busqueda{
+    display: flex;
+    padding: center;
+    margin: 0 3rem;
+    width: 50vh;
+}
+.promo{
+    display: row;
+    font-family: 'Zen Dots';
+}
+.barra-busqueda button{
+    font-size: 20px;
+}
+
+
+/* REDES */
+
+#redes{
+    margin: 0 auto;
+    max-width: 1180px;
+}
+#redes-items{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+.labels-redes{
+    display: flex;
+    flex-wrap: wrap;
+}
+.labels-redes .item {
+    margin: 0 15px  0 0;
+    padding: 0 5px;
+}
+
+.btn-sep {
+    padding: 0 0 0 18px;
+    width: 1%;
+}
+
+#redes .redes-items .labels-redes .item-user {
+    position: relative;
+}
+#redes .redes-items .labels-redes button {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    margin: 0 0 0 5px;
+    outline: 0;
+    position: relative;
+    font-family: 'Zen Dots';
+}
+div{
+    display: block;
+}
+#redes .redes-items .labels-redes .button .icono {
+    max-width: 100%;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+#redes .redes-items .labels-redes .item-user .dropdown {
+    width: auto;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: var(--area-shadow);
+    display: none;
+    font-family: 'Zen Dots';
+    right: 0;
+    padding: 10px;
+    position: absolute;
+    top: 50px;
+    width: 300px;
+    z-index: 15;
+}
+#redes .redes-items .labels-redes .item-user .dropdown ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+#redes .redes-items .labels-redes .item-user .dropdown ul li:first-child {
+    border-top: 0;
+}
+#redes .redes-items .labels-redes .item-user .dropdown ul li {
+    border-top: 1px solid rgba(0,0,0,.2);
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.NavLink{
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+}
+.NavLink:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#redes .redes-items .labels-redes button .number {
+    align-items: center;
+    background-color: #00b7e6;
+    border-radius: 100%;
+    color: #fff;
+    display: flex;
+    font-size: 8px;
+    height: 18px;
+    justify-content: center;
+    position: absolute;
+    right: -5px;
+    text-align: center;
+    top: -5px;
+    width: 18px;
 }

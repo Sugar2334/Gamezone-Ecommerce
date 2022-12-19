@@ -6,6 +6,10 @@ import ItemDetailContainer from './containers/ItemDetailContainer/ItemDetailCont
 import CartContainer from './containers/CartContainer/CartContainer'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ControlCarousel from './components/carousel/ControlCarousel';
+import Navbar2 from './components/Navbar/Navbar2';
+import Navbar3 from './components/Navbar/Navbar3';
+
 
 
 function App() { 
@@ -14,7 +18,13 @@ function App() {
     // let saludar = () => alert('soy func de app') 
     return (
         <BrowserRouter>
+        <div className='App'>
+            <Navbar2 />
             <Navbar />
+            <Navbar3 />
+            <div className='carousel'>
+            <ControlCarousel />
+            </div>
             <Routes >
                 <Route path='/' element={ <ItemListContainer saludo={saludo} /> } />
                 <Route path='/categoria/:categoriaId' element={ <ItemListContainer saludo={saludo} /> } />
@@ -26,6 +36,7 @@ function App() {
                 <Route path='*' element={<Navigate to='/' />}/>
           
             </Routes>   
+        </div>
             
         </BrowserRouter>     
     )
