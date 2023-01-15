@@ -26,4 +26,4 @@ Para desarrollar esta web fueron utilizadas las siguientes librerias:
 
 ## Informacion Extra
 
-Mi web se encuentra disponible en:
+Mi web se encuentra disponible en: https://unrivaled-bunny-695ac4.netlify.app
