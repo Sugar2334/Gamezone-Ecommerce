@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 
 
 
-export const ItemCount = ({initial,stock,onAdd,productId}) => {
+export const ItemCount = ({initial,stock,onAdd,productId, showVerMas}) => {
     const [ contador, setearContador ] = useState(initial) 
 
     const increase = () => {
@@ -45,10 +45,12 @@ export const ItemCount = ({initial,stock,onAdd,productId}) => {
         > 
             - 
         </button> 
-
-        <Link to={`/detail/${productId}`}>
-                      <Button style={{ marginTop:'1rem'}}variant="btn btn-success btn-block">Ver Mas</Button>
-        </Link>
+        {
+            showVerMas &&
+            <Link to={`/detail/${productId}`}>
+                        <Button style={{ marginTop:'1rem'}}variant="btn btn-success btn-block">Ver Mas</Button>
+            </Link>
+        }
     </center>
     )
 }

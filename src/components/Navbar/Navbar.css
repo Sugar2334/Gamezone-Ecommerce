@@ -1,22 +1,31 @@
 .navbar-top{
     background-color: rgb(39, 38, 38);
+    display: flex;
+    justify-content: space-around;
 }
 .imagen-icon{
     justify-content: center;
     display: flex;
-    margin: 0 25rem;
+    margin: auto;
+    color: red;
+    font-size: 35px;
 }
+
 .titulo{
     font-family: 'Zen Dots';
     text-transform: uppercase;
-    margin: 0 1rem;
-    color: white;
+    display: flex;
+    margin: 0 2rem 0 1rem;
+}
+.title-home{
+    color: #fff;
     font-size: 20px;
+
 }
 .barra-busqueda{
     display: flex;
     padding: center;
-    margin: 0 3rem;
+    margin: auto;
     width: 50vh;
 }
 .promo{
@@ -31,7 +40,7 @@
 /* REDES */
 
 #redes{
-    margin: 0 auto;
+    margin: 0 2rem 0 1rem;
     max-width: 1180px;
 }
 #redes-items{
@@ -44,7 +53,7 @@
     flex-wrap: wrap;
 }
 .labels-redes .item {
-    margin: 0 15px  0 0;
+    margin: 0 0.5rem;
     padding: 0 5px;
 }
 
@@ -72,6 +81,12 @@ div{
     max-width: 100%;
     overflow-clip-margin: content-box;
     overflow: clip;
+}
+.icono{
+    display: flex;
+    padding-left: 10px;
+    font-size: 30px;
+    color: white;
 }
 
 #redes .redes-items .labels-redes .item-user .dropdown {

@@ -4,11 +4,14 @@ import Navbar from './components/Navbar/Navbar';
 import ItemListContainer from './containers/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './containers/ItemDetailContainer/ItemDetailContainer'
 import CartContainer from './containers/CartContainer/CartContainer'
+import "./firebase/config";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ControlCarousel from './components/carousel/ControlCarousel';
+
 import Navbar2 from './components/Navbar/Navbar2';
 import Navbar3 from './components/Navbar/Navbar3';
+import { CartContextProvider } from './contexts/CartContext';
+
 
 
 
@@ -17,28 +20,30 @@ function App() {
     let saludo  = ''
     // let saludar = () => alert('soy func de app') 
     return (
-        <BrowserRouter>
-        <div className='App'>
-            <Navbar2 />
-            <Navbar />
-            <Navbar3 />
-            <div className='carousel'>
-            <ControlCarousel />
-            </div>
-            <Routes >
-                <Route path='/' element={ <ItemListContainer saludo={saludo} /> } />
-                <Route path='/categoria/:categoriaId' element={ <ItemListContainer saludo={saludo} /> } />
+            <CartContextProvider>
+
+                <BrowserRouter>
+
+                    <div className='App'>
+                        <Navbar2 />
+                        <Navbar />
+                        <Navbar3 />
+                        
+                        <Routes >
+                            <Route path='/' element={ <ItemListContainer saludo={saludo} /> } />
+                            <Route path='/categoria/:categoriaId' element={ <ItemListContainer saludo={saludo} /> } />
+                            <Route path='/detail/:productoId' element={ <ItemDetailContainer /> } />
+                            <Route path='/cart' element={<CartContainer />} />                
+                            
+                            
+                            <Route path='*' element={<Navigate to='/' />}/>
+                    
+                        </Routes>   
+                    </div>
+                    
+                </BrowserRouter>
                 
-                <Route path='/detail/:productoId' element={ <ItemDetailContainer /> } />
-                <Route path='/cart' element={<CartContainer />} />                
-                {/* <Route path='/notpage' element={<Componente404 />} />                 */}
-                
-                <Route path='*' element={<Navigate to='/' />}/>
-          
-            </Routes>   
-        </div>
-            
-        </BrowserRouter>     
+            </CartContextProvider>
     )
 }
 

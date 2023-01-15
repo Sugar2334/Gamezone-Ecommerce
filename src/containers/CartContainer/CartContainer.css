@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+.cartContent {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: auto;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff;
+    border-radius: 12px;
+}
+
+.cartContent > img {
+    height: 120px;
+    width: 100px;
+    text-align: center;
+    margin: auto;
+    margin-left: 2rem;
+    margin-right: 1rem;
+}
+.cartContent > h2 {
+    margin: auto;
+}
+.cartContent > h3 {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 40px;
+}
+.cartContent > h4 {
+    margin-right: 2rem;
+    margin-top: 40px;
+}
+.cartContent > button{
+    margin-right: 3rem;
+    margin-top: 40px;
+    
+}
+
+.cartTotal {
+    text-align: center;
+    margin-top: 90px;
+}
+
+.contenedor{
+    display: flex;
+    height: 10vh;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.tabla{
+    display: flex;
+    justify-content: center;
+    height: 30vh;
+   
+}
+
+
+.botons{
+    position: relative;
+    padding: 20px 50px;
+    text-decoration: none;
+    color: #fff;
+    letter-spacing: 5px;
+}
+
+.botons-3{
+    transition: all 0.6 ease;
+}
+
+.botons-3::after{
+    content: "";
+    position: absolute;
+    width: 10%;
+    height: 100%;
+    left: -10px;
+    top: 0;
+    background-color: #fff;
+    transform: skew(20deg, 0deg);
+}
+
+.botons-3::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transform: skew(20deg, 0deg);
+    border: 3px solid #03cc57;
+}
+
+.botons-3:hover::after{
+    background-color: #ffffff31;
+    transform: skew(20deg, 0deg) translateX(240px);
+}
+
+.botons-3:hover::before{
+    background-color: #03cc57;
+    border: 3px solid #029740;
+    transform: skew(20deg, 0deg) scale(1.1);
+}
+
+/* FORM */
+
+.form-group{
+    margin: auto;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+}

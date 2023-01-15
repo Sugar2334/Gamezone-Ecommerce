@@ -2,34 +2,35 @@ import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Nav from 'react-bootstrap/Nav';
-import { FaRegUserCircle, FaShoppingCart } from "react-icons/fa";
+import Container from 'react-bootstrap/Container';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from "react-router-dom";
+
 
 import './Navbar.css'
+import { useCartContext } from '../../contexts/CartContext';
 
 
 const NavBar = () => {
+    const { cantidadTotal } = useCartContext()
     return (
         <>
         <div className='navbar-top'>
             <Navbar>
-                    <Navbar.Brand className='imagen-icon'>
-                        <img
-                        alt="logo"
-                        src="https://initiate.alphacoders.com/images/116/cropped-512-512-1162610.jpg?2944"
-                        width="40"
-                        height="40"
-                        className="d-inline-block"
-                        />
+                    <Container>
+                    <Navbar.Brand>
+                    <div className='imagen-icon'>
+                        <ion-icon name="game-controller-outline"></ion-icon>
+                    </div>
                     </Navbar.Brand>
-                        <Nav.Item className='titulo'>GameZone</Nav.Item>
+                        <Navbar.Brand className='titulo' href="/"><span className='title-home'>GameZone</span></Navbar.Brand>
                     <Form className="barra-busqueda">
                         <Form.Control
                             type="search"
                             placeholder="Buscar"
                             className="me-2"
                             aria-label="Search"
-                        />
+                            />
                         <Button variant="outline-success">🔍︎</Button>
                     </Form>
                 <Nav.Item>
@@ -67,7 +68,7 @@ const NavBar = () => {
                                 <div className='item-user'>
                                     <button className='dropdown-opener'>
                                             <div className='icono'>
-                                                <FaRegUserCircle />
+                                                <ion-icon name="person-circle-outline"></ion-icon>
                                             </div>
                                             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                                                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -83,20 +84,23 @@ const NavBar = () => {
                                     </button>
                                 </div>
                                 <div className='item-cart' id='minicart'>
+                                    <Link to= '/cart'>
                                     <button className='dropdown-opener'>
-                                        <div className='number'>0</div>
+                                        <div className='number'> { cantidadTotal() } </div>
                                         <div className='icono'>
-                                                <FaShoppingCart />
+                                            <ion-icon name="cart-outline"></ion-icon>
                                         </div>
                                         <div className='dropdown'>
-                                            <div className='mini-cart-footer'>No hay elementos</div>
+                                            <div className='mini-cart-footer'></div>
                                         </div>
                                     </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </Nav.Item>
+                            </Container>
             </Navbar>
         </div>
         </>

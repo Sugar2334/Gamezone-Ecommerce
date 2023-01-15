@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
 import "./itemDetail.css";
+import Intercambiabilidad from "../Intercambiabilidad/Intercambiabilidad";
+import ItemCount from "../ItemCount/ItemCount";
+import { useCartContext } from "../../contexts/CartContext";
+
 
 export const ItemDetail = ({product}) => {
+
+    const { addtoCart, cartList } =  useCartContext()
+
+    const [intercambiabilidad, setIntercambiabilidad] = useState(false)
+    const onAdd = (cantidad) => {
+        setIntercambiabilidad (true);
+        addtoCart( { ...product, cantidad } )
+    }
+
+    console.log(cartList)
   return (
     <div className="body">
         <div className="blog-post">
@@ -15,11 +27,16 @@ export const ItemDetail = ({product}) => {
                 <div className="blog-post__date">
                     <h1 className="blog-post__title">{product.name}</h1>
                     <span>{product.categoria}</span>
-                    <p className="blog-post__text">{product.price}</p>
+                    <p className="blog-post__text">${product.price.toLocaleString("de-DE")}</p>
                     <div className="boton">
-                    <Link to={`/detail/${product.id}`}>
-                            <Button style={{ marginRight: '0rem'}}variant="btn btn-success btn-block">Comprar</Button>
-                    </Link>
+                        {
+                            intercambiabilidad?
+                            <Intercambiabilidad />
+                            :
+                            <div className="contador">
+                                <ItemCount initial={1} stock={20} onAdd={onAdd} productId={product.id}/>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>
