@@ -27,7 +27,7 @@ const ItemListContainer = () => {
     }, [categoriaId]);
 
   const onAdd = (quantity) => {
-    console.log(`Compraste ${quantity} unidades`);
+    /*console.log(`Compraste ${quantity} unidades`);*/
   };
 
   return (
@@ -39,8 +39,8 @@ const ItemListContainer = () => {
         <h2>Cargando productos ...</h2>
       ) : (
         <div className="row">
-          {products.map((product) => (
-            <Card style={{ width: "24rem" }}>
+          {products.map((product,i) => (
+            <Card key={i} style={{ width: "24rem" }}>
               <Card.Img variant="top" src={product.foto} />
               <Card.Body>
                 <Card.Title>{`${product.name} - ${product.categoria}`}</Card.Title>

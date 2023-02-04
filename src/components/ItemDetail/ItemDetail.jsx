@@ -8,7 +8,7 @@ import { useCartContext } from "../../contexts/CartContext";
 
 export const ItemDetail = ({product}) => {
 
-    const { addtoCart, cartList } =  useCartContext()
+    const { addtoCart } =  useCartContext()
 
     const [intercambiabilidad, setIntercambiabilidad] = useState(false)
     const onAdd = (cantidad) => {
@@ -16,7 +16,7 @@ export const ItemDetail = ({product}) => {
         addtoCart( { ...product, cantidad } )
     }
 
-    console.log(cartList)
+    /*console.log(cartList)*/
   return (
     <div className="body">
         <div className="blog-post">

@@ -8,11 +8,10 @@ const CartContainer = () => {
 
   const { cartList, removeElement} = useCartContext()
   const rendercartList = () => {
-      return cartList.map((product) =>{
+      return cartList.map((product,i) =>{
   
         return (
-          <>
-          <div className="tabla">
+          <div key={i} className="tabla">
           <div className="cartContent" key={product.id}>
             <img src={product.foto} alt="product.name" />
             <h2 className="count">{product.cantidad}</h2>
@@ -21,7 +20,6 @@ const CartContainer = () => {
             <button className="btn btn-danger" style={{height:40}} onClick={() => removeElement(product.id)}>Borrar</button>
           </div>        
           </div>
-          </>
         );
       });
      

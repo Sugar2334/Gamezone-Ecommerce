@@ -11,11 +11,21 @@ export const CartContextProvider = ({ children }) => {
     const [ cartList, setCartList ] = useState([])
 
     const addtoCart = (producto) => {
-        setCartList( [
-            ...cartList,
-            producto
-        ] )
-    }
+        const index = cartList.findIndex(e => e.id === producto.id)
+        if (index === -1 ) {
+            setCartList([
+                ...cartList,
+                producto
+            ]);
+        }else {
+            const newCart = cartList;
+            newCart[index].cantidad++;
+            setCartList([
+                ...newCart
+            ]);
+        }
+    };
+
     const removeElement = (id) => {
         const newCart = cartList.filter (e => e.id !== id)
         setCartList(newCart)

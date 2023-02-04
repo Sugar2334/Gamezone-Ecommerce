@@ -1,4 +1,5 @@
 import {  Nav } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 import './nav2.css'
 
@@ -9,37 +10,37 @@ function Navbar3() {
                 <div className='icons'>
                     <div className='item-item'>
                         <Nav.Item>
-                            <Nav.Link href="/categoria/Hardware">
+                            <Link to="/categoria/Hardware">
                             <div className='section'>Hardware</div>
-                            </Nav.Link>
+                            </Link>
                         </Nav.Item>
                     </div>
                     <div className='item-item'>
                         <Nav.Item>
-                            <Nav.Link href="/categoria/Motherboards">
+                            <Link to="/categoria/Motherboards">
                             <div className='section'>Motherboards</div>
-                            </Nav.Link>
+                            </Link>
                         </Nav.Item>
                     </div>
                     <div className='item-item'>    
                         <Nav.Item>
-                            <Nav.Link href="/categoria/Periféricos">
+                            <Link to="/categoria/Periféricos">
                             <div className='section'>Periféricos</div>
-                            </Nav.Link>
+                            </Link>
                         </Nav.Item>
                     </div>
                     <div className='item-item'>   
                         <Nav.Item>
-                            <Nav.Link href="/categoria/Monitores">
+                            <Link to="/categoria/Monitores">
                             <div className='section'>Monitores</div>
-                            </Nav.Link>
+                            </Link>
                         </Nav.Item>
                     </div>
                     <div className='item-item'>                        
                         <Nav.Item>
-                            <Nav.Link href="/categoria/Sillas">
+                            <Link to="/categoria/Sillas">
                             <div className='section'>Sillas</div>
-                            </Nav.Link>
+                            </Link>
                         </Nav.Item>
                     </div>
                 </div>

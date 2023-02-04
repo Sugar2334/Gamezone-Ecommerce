@@ -13,7 +13,6 @@ const ButtonCart= () => {
                 <Link to='/cart' >
                     <button
                         className="btn btn-primary"
-                        onClick={() =>console.log('ir a cart')}
                         >Finalizar Compra</button>
                 </Link>
                 </div>
@@ -21,7 +20,6 @@ const ButtonCart= () => {
                 <Link to='/'>
                     <button
                     className="btn btn-primary"
-                    onClick={()=>console.log('ir al home')}
                     >Seguir comprando</button>
                 </Link>
             </div>

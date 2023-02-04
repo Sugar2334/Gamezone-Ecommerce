@@ -9,26 +9,36 @@ const CartTotal = (product) => {
     const [dataForm, setDataForm] = useState({
         name: "",
         email: "",
+        confirmarEmail: "",
         phone: ""
 })
     const { cartList, vaciarCarrito} = useCartContext();
 
     const generarOrden = () => {
         
+      const { name, email, confirmarEmail, phone } = dataForm;
+      
+      if(name === "") {
+        alert("Por favor ingrese un nombre")
+      } else if(email === "") {
+        alert("Por favor ingrese un mail")
+      } else if(phone === "") {
+        alert("Por favor ingrese un telefono")
+      } else if(email !== confirmarEmail) {
+        alert("Los Emails no coinciden")
+      } else {
         const order = {}
-        
         order.buyer = dataForm
-
+  
         order.item = cartList.map( ({ name, id, price }) => ({name, id, price}) )
-
         const db = getFirestore()
         const queryOrder = collection(db, 'orders')
-
-        addDoc(queryOrder, order)
-        .then(resp => console.log(resp))
-        .catch(err => console.log(err))
-        .finally(() => {
-            alert(`Orden registrada. Cliente: ${dataForm.name} Total: $${precioTotal.toLocaleString("de-DE")}`)
+  
+        addDoc(queryOrder, order).then(({id}) => {
+            alert(`Orden registrada 
+             Codigo de Orden: ${id}
+             Cliente: ${dataForm.name} 
+             Total: $${precioTotal.toLocaleString("de-DE")}`)
             vaciarCarrito()
             setDataForm({
                 name:"",
@@ -37,6 +47,7 @@ const CartTotal = (product) => {
             })
         })
       }
+    }
 
     const handleOnChange = (e) => {
         setDataForm({
@@ -79,7 +90,7 @@ const CartTotal = (product) => {
                 className="form-control" 
                 name="name" 
                 placeholder="Ingresa el nombre" 
-                value={dataForm.name}
+                value={dataForm.name} required
                 onChange={handleOnChange}
                 />
                 <label htmlFor="email">Email</label>
@@ -88,7 +99,15 @@ const CartTotal = (product) => {
                 className="form-control" 
                 name="email" 
                 placeholder="Ingresa el email" 
-                value={dataForm.email}
+                value={dataForm.email} required
+                onChange={handleOnChange}
+                />
+                <input 
+                type="text" 
+                className="form-control" 
+                name="confirmarEmail" 
+                placeholder="Confirme el email" 
+                value={dataForm.confirmarEmail} required
                 onChange={handleOnChange}
                 />
                 <label htmlFor="telefono">Telefono</label>
@@ -97,7 +116,7 @@ const CartTotal = (product) => {
                 className="form-control" 
                 name="phone" 
                 placeholder="Ingresa el número" 
-                value={dataForm.phone}
+                value={dataForm.phone} required
                 onChange={handleOnChange}
                 />
             </div>
