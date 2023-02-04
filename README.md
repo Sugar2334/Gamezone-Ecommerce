@@ -24,6 +24,11 @@ Para desarrollar esta web fueron utilizadas las siguientes librerias:
 - Javascript - JavaScript es un lenguaje de programación interpretado, dialecto del estándar ECMAScript. Se define como orientado a objetos, ​ basado en prototipos, imperativo, débilmente tipado y dinámico.
 - Firebase - Firebase es una plataforma para el desarrollo de aplicaciones web y aplicaciones móviles lanzada en 2011 y adquirida por Google en 2014.
 
+## Installation
+Creado con Create React App ("npm start" para la ejecución).
+
+npm start
+
 ## Informacion Extra
 
 Mi web se encuentra disponible en:
